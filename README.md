@@ -25,3 +25,9 @@ python load_model.py
 
 ### 3. Compare keys  
 The goal is to get a keys list of torch model in mindspore order
+
+### 4. Convert
+Write the scripts you need as you have find the regularity between two model weights file.Then
+```python
+python convert.py
+```
