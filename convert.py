@@ -57,6 +57,7 @@ def convert_model(pth_file_path, torch_key_list, mind_key_list,ckpt_file_path):
             value = value[int(num/3)*2:int(num/3)*3]
             params_dict_list.append({"name": key, "data": value})
         else:
+            print(key)
             value = mind_params_dict[key]
             params_dict_list.append({"name": key, "data": value})
         i = i + 1

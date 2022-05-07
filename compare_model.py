@@ -11,15 +11,15 @@ def traversal_params(pth_file_path, ckpt_file_path):
     # torch_f = open('torch_key.txt','w')
     
     for k, v in torch_params_dict.items():
-        print(v["layers.0.blocks.0.attn.qkv.weight"].shape)
+        print(v["layers.3.blocks.1.attn.relative_position_index"])
         # for kk,vv in v.items(): 
         #     print(kk , file = torch_f)
 
     # load mindspore ckpt file as a dictionary
-    ms_f = open('ms_key2.txt','w')
     mind_params_dict = load_checkpoint(ckpt_file_path)
-    print(mind_params_dict["model.layers.0.blocks.0.attn.q.weight"])
+    print(mind_params_dict["model.layers.3.blocks.1.attn.relative_bias.index"].shape)
     # for k, v in mind_params_dict.items():
     #     print(k , file = ms_f)
-        
 traversal_params("swin_tiny_patch4_window7_224.pth","swintransformer_ascend_v150_imagenet2012_research_cv_top1acc80.96_top5acc95.37.ckpt")
+traversal_params("swin_tiny_patch4_window7_224.pth","convert_from_torch.ckpt")
+        
